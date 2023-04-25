@@ -1,0 +1,20 @@
+<div id="container">
+    <h2>Skill Data</h2>
+    <form (ngSubmit)="onSubmit()" #skillSetForm="ngForm">
+        <label for="skillName">Skill Set: </label>
+        <select id="skillName" name="skillName" [(ngModel)]="skillName" required>
+            <option value="" disabled selected>Select Skillset</option>
+            <option *ngFor="let p of skills" [value]="p">{{p}}</option>
+        </select>
+        <label for="experience">Experience(in Months):</label>
+        <input type="number" id="experience" name="experience" [(ngModel)]="experience" required>
+        <label for="proficiency">Proficiency:</label>
+        <select id="proficiency" name="proficiency" [(ngModel)]="proficiency" required>
+            <option value="" disabled selected>Select Proficiency</option>
+            <option *ngFor="let p of proficiencyOptions" [value]="p">{{p}}</option>
+        </select>
+        <button class="cancel">Cancel</button>
+        <button type="submit" [disabled]="!skillSetForm.valid" class="add">Add</button>
+    </form>
+</div>  
+  
